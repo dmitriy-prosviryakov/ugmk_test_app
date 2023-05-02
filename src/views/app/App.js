@@ -1,9 +1,17 @@
-import { productsService } from '../../services/products.service';
-import { getChartData } from '../../utils/utils';
-import { useEffect, useState } from 'react';
-import './App.css';
+import { productsService } from "../../services/products.service";
+import { cookiesService } from "../../services/cookie.service";
+import { getChartData } from "../../utils/utils";
+import { productOptions } from "../../constants/product.constants"
+import { useEffect, useState } from "react";
+import { Select } from "antd";
+
+import "./App.css";
 
 function App() {
+  const [selectedProduct, setSelectedProduct] = useState(
+    cookiesService.get("selectedProduct") || "all"
+  );
+
   const getProducts = async () => {
     try {
       const data = await productsService.getProducts();
@@ -21,6 +29,13 @@ function App() {
     getProducts();
   }, []);
 
+  const onProductSelect = (value) => {
+    console.log(value);
+    cookiesService.set("selectedProduct", value);
+
+    setSelectedProduct(value);
+  };
+
   return (
     <div className="App">
       <header className="App-header">
@@ -36,6 +51,10 @@ function App() {
           Learn React
         </a>
       </header>
+      <div>
+        <div>Фильтр по типу продукции</div>
+        <Select options={productOptions} value={selectedProduct} onChange={onProductSelect} />
+      </div>
     </div>
   );
 }
