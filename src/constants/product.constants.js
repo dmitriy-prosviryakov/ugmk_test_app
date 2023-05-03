@@ -16,3 +16,40 @@ export const productOptions = [
     label: "Продукт 3",
   },
 ];
+
+export const months = [
+  { label: "Янв", number: 1 },
+  { label: "Фев", number: 2 },
+  { label: "Мар", number: 3 },
+  { label: "Апр", number: 4 },
+  { label: "Май", number: 5 },
+  { label: "Июн", number: 6 },
+  { label: "Июл", number: 7 },
+  { label: "Авг", number: 8 },
+  { label: "Сен", number: 9 },
+  { label: "Окт", number: 10 },
+  { label: "Ноя", number: 11 },
+  { label: "Дек", number: 12 },
+];
+
+export const getFactoryLabel = (id) => {
+  switch (id) {
+    case "1":
+      return "Фабрика А";
+    case "2":
+      return "Фабрика Б";
+    default:
+      return "Фабрика Х";
+  }
+};
+
+export const getColor = (id) => {
+  switch (id) {
+    case "1":
+      return "red";
+    case "2":
+      return "blue";
+    default:
+      return "green";
+  }
+};

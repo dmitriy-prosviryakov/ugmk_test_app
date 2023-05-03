@@ -4,13 +4,14 @@ import { getChartData } from "../../utils/utils";
 import { productOptions } from "../../constants/product.constants"
 import { useEffect, useState } from "react";
 import { Select } from "antd";
-
+import { ProductsVerticalChart } from '../../components/products-vertical-chart/products-vertical-chart';
 import "./App.css";
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(
     cookiesService.get("selectedProduct") || "all"
   );
+  const [chartData, setChartData] = useState();
 
   const getProducts = async () => {
     try {
@@ -18,8 +19,9 @@ function App() {
 
       console.log(data);
 
-      const res = getChartData(data);
-      console.log(res);
+      const parsedData = getChartData(data);
+      console.log(parsedData);
+      setChartData(parsedData);
     } catch (error) {
       console.log(error);
     }
@@ -38,23 +40,11 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
       <div>
         <div>Фильтр по типу продукции</div>
         <Select options={productOptions} value={selectedProduct} onChange={onProductSelect} />
       </div>
+      <ProductsVerticalChart chartData={chartData} selectedFilter={selectedProduct} />
     </div>
   );
 }
