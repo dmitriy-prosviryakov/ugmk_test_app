@@ -31,25 +31,3 @@ export const months = [
   { label: "Ноя", number: 11 },
   { label: "Дек", number: 12 },
 ];
-
-export const getFactoryLabel = (id) => {
-  switch (id) {
-    case "1":
-      return "Фабрика А";
-    case "2":
-      return "Фабрика Б";
-    default:
-      return "Фабрика Х";
-  }
-};
-
-export const getColor = (id) => {
-  switch (id) {
-    case "1":
-      return "red";
-    case "2":
-      return "blue";
-    default:
-      return "green";
-  }
-};

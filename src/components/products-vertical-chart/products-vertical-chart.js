@@ -1,10 +1,9 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import {
-  getFactoryLabel,
   months,
-  getColor,
 } from "../../constants/product.constants";
+import { getFactoryLabel, getBarColor} from '../../utils/utils';
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -99,7 +98,7 @@ export function ProductsVerticalChart({ chartData, selectedFilter }) {
           id: company,
           label: getFactoryLabel(company),
           data: values,
-          backgroundColor: getColor(company),
+          backgroundColor: getBarColor(company),
         });
       }
 

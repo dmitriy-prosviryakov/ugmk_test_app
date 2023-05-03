@@ -1,6 +1,6 @@
 import { productsService } from "../../services/products.service";
 import { cookiesService } from "../../services/cookie.service";
-import { mapDataForCharts } from "../../utils/utils";
+import { mapDataForCharts } from "../../utils/mappers";
 import { productOptions } from "../../constants/product.constants"
 import { useEffect, useState } from "react";
 import { Select } from "antd";
