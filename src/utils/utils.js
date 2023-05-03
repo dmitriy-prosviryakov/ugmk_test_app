@@ -1,10 +1,10 @@
-export const getChartData = (data) => {
-  const preparedData = mapData(data);
+export const mapDataForCharts = (data) => {
+  const preparedData = prepareData(data);
 
   return mapDataByCompany(preparedData);
 };
 
-export const mapDataByCompany = (data) => {
+const mapDataByCompany = (data) => {
   const companyIds = [...new Set(data.map((item) => item.factory_id))];
 
   const result = {};
@@ -18,7 +18,7 @@ export const mapDataByCompany = (data) => {
   return result;
 };
 
-export const mapDataByYear = (data) => {
+const mapDataByYear = (data) => {
   const years = [...new Set(data.map((item) => item.year))];
   const result = {};
   for (const year of years) {
@@ -28,7 +28,7 @@ export const mapDataByYear = (data) => {
   return result;
 };
 
-export const mapDataByMonth = (data, year) => {
+const mapDataByMonth = (data, year) => {
   const dataForYear = data.filter((item) => item.year === year);
   const month = {};
 
@@ -51,7 +51,7 @@ export const mapDataByMonth = (data, year) => {
   return month;
 };
 
-export const mapData = (data) => {
+const prepareData = (data) => {
   const filtered = data.filter((item) => !!item.date);
 
   return filtered.map((item) => {

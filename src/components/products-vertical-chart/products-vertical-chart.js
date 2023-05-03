@@ -1,5 +1,5 @@
 import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { getFactoryLabel, months, getColor } from "../../constants/product.constants";
 import {
   Chart as ChartJS,
@@ -10,7 +10,7 @@ import {
   Tooltip,
   Legend,
 } from "chart.js";
-import { Bar } from "react-chartjs-2";
+import { Bar, getElementAtEvent } from "react-chartjs-2";
 
 ChartJS.register(
   CategoryScale,
@@ -35,6 +35,11 @@ export const options = {
 
 export function ProductsVerticalChart({ chartData, selectedFilter }) {
   const [data, setData] = useState();
+
+  const chartRef = useRef();
+  const onClick = (event) => {
+    console.log(getElementAtEvent(chartRef.current, event));
+  }
 
   useEffect(() => {
     if (chartData) {
@@ -89,5 +94,5 @@ export function ProductsVerticalChart({ chartData, selectedFilter }) {
       setData(newData);
     }
   }, [chartData, selectedFilter]);
-  return data ? <Bar options={options} data={data} /> : null;
+  return data ? <Bar ref={chartRef} options={options} data={data} onClick={onClick}/> : null;
 }

@@ -1,6 +1,6 @@
 import { productsService } from "../../services/products.service";
 import { cookiesService } from "../../services/cookie.service";
-import { getChartData } from "../../utils/utils";
+import { mapDataForCharts } from "../../utils/utils";
 import { productOptions } from "../../constants/product.constants"
 import { useEffect, useState } from "react";
 import { Select } from "antd";
@@ -19,7 +19,7 @@ function App() {
 
       console.log(data);
 
-      const parsedData = getChartData(data);
+      const parsedData = mapDataForCharts(data);
       console.log(parsedData);
       setChartData(parsedData);
     } catch (error) {
