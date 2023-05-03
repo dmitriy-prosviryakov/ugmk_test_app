@@ -16,11 +16,7 @@ function App() {
   const getProducts = async () => {
     try {
       const data = await productsService.getProducts();
-
-      console.log(data);
-
       const parsedData = mapDataForCharts(data);
-      console.log(parsedData);
       setChartData(parsedData);
     } catch (error) {
       console.log(error);
@@ -32,7 +28,6 @@ function App() {
   }, []);
 
   const onProductSelect = (value) => {
-    console.log(value);
     cookiesService.set("selectedProduct", value);
 
     setSelectedProduct(value);
