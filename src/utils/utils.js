@@ -1,3 +1,14 @@
+export const getFactoryLiteral = (id) => {
+  switch (id) {
+    case "1":
+      return "А";
+    case "2":
+      return "Б";
+    default:
+      return "Х";
+  }
+};
+
 export const getFactoryLabel = (id) => {
   switch (id) {
     case "1":

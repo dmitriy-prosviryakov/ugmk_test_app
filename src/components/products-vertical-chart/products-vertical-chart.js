@@ -91,7 +91,7 @@ export function ProductsVerticalChart({ chartData, selectedFilter }) {
               break;
           }
 
-          values.push(sum / 1000);
+          values.push(Math.floor(sum / 1000));
         }
 
         datasets.push({

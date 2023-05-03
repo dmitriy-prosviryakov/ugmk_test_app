@@ -1,10 +1,10 @@
 import { productsService } from "../../services/products.service";
 import { cookiesService } from "../../services/cookie.service";
 import { mapDataForCharts } from "../../utils/mappers";
-import { productOptions } from "../../constants/product.constants"
+import { productOptions } from "../../constants/product.constants";
 import { useEffect, useState } from "react";
 import { Select } from "antd";
-import { ProductsVerticalChart } from '../../components/products-vertical-chart/products-vertical-chart';
+import { ProductsVerticalChart } from "../../components/products-vertical-chart/products-vertical-chart";
 import "./App.css";
 
 function App() {
@@ -39,12 +39,23 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <div>
-        <div>Фильтр по типу продукции</div>
-        <Select options={productOptions} value={selectedProduct} onChange={onProductSelect} />
+    <div className="app">
+      <div className="content">
+        <div className="filterWrapper">
+          <div>Фильтр по типу продукции</div>
+          <Select
+            options={productOptions}
+            value={selectedProduct}
+            onChange={onProductSelect}
+          />
+        </div>
+        <div className="chartWrapper">
+          <ProductsVerticalChart
+            chartData={chartData}
+            selectedFilter={selectedProduct}
+          />
+        </div>
       </div>
-      <ProductsVerticalChart chartData={chartData} selectedFilter={selectedProduct} />
     </div>
   );
 }
