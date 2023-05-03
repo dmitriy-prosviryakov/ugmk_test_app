@@ -1,6 +1,10 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
-import { getFactoryLabel, months, getColor } from "../../constants/product.constants";
+import {
+  getFactoryLabel,
+  months,
+  getColor,
+} from "../../constants/product.constants";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -11,6 +15,7 @@ import {
   Legend,
 } from "chart.js";
 import { Bar, getElementAtEvent } from "react-chartjs-2";
+import { useNavigate } from "react-router-dom";
 
 ChartJS.register(
   CategoryScale,
@@ -35,11 +40,22 @@ export const options = {
 
 export function ProductsVerticalChart({ chartData, selectedFilter }) {
   const [data, setData] = useState();
-
   const chartRef = useRef();
+  const navigate = useNavigate();
+
   const onClick = (event) => {
-    console.log(getElementAtEvent(chartRef.current, event));
-  }
+    const clickedElements = getElementAtEvent(chartRef.current, event);
+
+    if (clickedElements && clickedElements.length) {
+      const element = clickedElements[0];
+
+      const companyId = data.datasets[element.datasetIndex]?.id;
+      const monthNumber = element.index + 1;
+      if (companyId && monthNumber) {
+        return navigate(`/details/${companyId}/${monthNumber}`);
+      }
+    }
+  };
 
   useEffect(() => {
     if (chartData) {
@@ -80,6 +96,7 @@ export function ProductsVerticalChart({ chartData, selectedFilter }) {
         }
 
         datasets.push({
+          id: company,
           label: getFactoryLabel(company),
           data: values,
           backgroundColor: getColor(company),
@@ -94,5 +111,7 @@ export function ProductsVerticalChart({ chartData, selectedFilter }) {
       setData(newData);
     }
   }, [chartData, selectedFilter]);
-  return data ? <Bar ref={chartRef} options={options} data={data} onClick={onClick}/> : null;
+  return data ? (
+    <Bar ref={chartRef} options={options} data={data} onClick={onClick} />
+  ) : null;
 }
