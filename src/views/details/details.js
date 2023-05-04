@@ -33,7 +33,7 @@ function Details() {
   const getMonthLabel = () => {
     const month = months.find((item) => item.number.toString() === monthNumber);
 
-    return month?.label;
+    return month?.name;
   };
 
   return (

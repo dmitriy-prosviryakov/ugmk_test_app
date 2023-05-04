@@ -25,18 +25,18 @@ export const productOptions = [
 ];
 
 export const months = [
-  { label: "Янв", number: 1 },
-  { label: "Фев", number: 2 },
-  { label: "Мар", number: 3 },
-  { label: "Апр", number: 4 },
-  { label: "Май", number: 5 },
-  { label: "Июн", number: 6 },
-  { label: "Июл", number: 7 },
-  { label: "Авг", number: 8 },
-  { label: "Сен", number: 9 },
-  { label: "Окт", number: 10 },
-  { label: "Ноя", number: 11 },
-  { label: "Дек", number: 12 },
+  { label: "Янв", name: "Январь", number: 1 },
+  { label: "Фев", name: "Февраль", number: 2 },
+  { label: "Мар", name: "Март", number: 3 },
+  { label: "Апр", name: "Апрель", number: 4 },
+  { label: "Май", name: "Май", number: 5 },
+  { label: "Июн", name: "Июнь", number: 6 },
+  { label: "Июл", name: "Июль", number: 7 },
+  { label: "Авг", name: "Август", number: 8 },
+  { label: "Сен", name: "Сентябрь", number: 9 },
+  { label: "Окт", name: "Октябрь", number: 10 },
+  { label: "Ноя", name: "Ноябрь", number: 11 },
+  { label: "Дек", name: "Декабрь", number: 12 },
 ];
 
 export const pieChartColors = ["green", "#FFBD33", "cyan", "red", "blue"];
