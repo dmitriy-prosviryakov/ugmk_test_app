@@ -6,7 +6,7 @@ import {
 } from "../../constants/product.constants";
 import { getFactoryLabel, getBarColor} from '../../utils/utils';
 import {
-  Chart as ChartJS,
+  Chart,
   CategoryScale,
   LinearScale,
   BarElement,
@@ -17,13 +17,13 @@ import {
 import { Bar, getElementAtEvent } from "react-chartjs-2";
 import { useNavigate } from "react-router-dom";
 
-ChartJS.register(
+Chart.register(
   CategoryScale,
   LinearScale,
   BarElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
 );
 
 export const options = {
@@ -35,6 +35,7 @@ export const options = {
     title: {
       display: false,
     },
+    datalabels: false,
   },
 };
 

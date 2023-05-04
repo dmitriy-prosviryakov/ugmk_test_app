@@ -1,5 +1,5 @@
 export const getFactoryLiteral = (id) => {
-  switch (id) {
+  switch (id.toString()) {
     case "1":
       return "А";
     case "2":
@@ -21,7 +21,7 @@ export const getFactoryLabel = (id) => {
 };
 
 export const getBarColor = (id) => {
-  switch (id) {
+  switch (id.toString()) {
     case "1":
       return "red";
     case "2":

@@ -1,9 +1,11 @@
-export const  ProductsSelectOptionsValues = {
-  all: 'all',
-  product1: 'product1',
-  product2: 'product2',
+import { getFactoryLiteral } from "../utils/utils";
+
+export const ProductsSelectOptionsValues = {
+  all: "all",
+  product1: "product1",
+  product2: "product2",
   //product3: 'product3',
-}
+};
 
 export const productOptions = [
   {
@@ -38,3 +40,5 @@ export const months = [
   { label: "Ноя", number: 11 },
   { label: "Дек", number: 12 },
 ];
+
+export const pieChartColors = ["green", "#FFBD33", "cyan", "red", "blue"];
