@@ -5,9 +5,9 @@ import { productOptions } from "../../constants/product.constants";
 import { useEffect, useState } from "react";
 import { Select } from "antd";
 import { ProductsBarChart } from "../../components/products-bar-chart/products-bar-chart";
-import styles from "./app.module.scss";
+import styles from "./home.module.scss";
 
-function App() {
+function Home() {
   const [selectedProduct, setSelectedProduct] = useState(
     cookiesService.get("selectedProduct") || "all"
   );
@@ -34,7 +34,7 @@ function App() {
   };
 
   return (
-    <div className={styles.app}>
+    <div className={styles.home}>
       <div className={styles.content}>
         <div className={styles.filterWrapper}>
           <div>Фильтр по типу продукции</div>
@@ -55,4 +55,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
