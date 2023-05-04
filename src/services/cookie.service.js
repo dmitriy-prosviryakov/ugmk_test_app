@@ -12,7 +12,7 @@ class CookiesService {
   }
 
   set(key, value) {
-    this.cookies.set(key, value);
+    this.cookies.set(key, value, { maxAge: 30 * 24 * 60 * 60 });
   }
 
   remove(key) {
