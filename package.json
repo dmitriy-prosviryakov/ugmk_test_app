@@ -25,7 +25,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "dockerize": "docker build . -t ugmk_test_app",
-    "start-container": "docker run -p 3000:3000 -d ugmk_test_app"
+    "start-container": "docker run -p 3000:3000 --rm ugmk_test_app"
   },
   "eslintConfig": {
     "extends": [
