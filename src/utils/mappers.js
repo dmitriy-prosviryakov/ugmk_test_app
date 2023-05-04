@@ -42,9 +42,9 @@ const mapDataByMonth = (data, year) => {
       product2: dataForMonth.reduce((a, b) => {
         return a + b.product2;
       }, 0),
-      product3: dataForMonth.reduce((a, b) => {
+      /*product3: dataForMonth.reduce((a, b) => {
         return a + b.product3;
-      }, 0),
+      }, 0),*/
     };
   }
 
@@ -58,7 +58,7 @@ const prepareData = (data) => {
     const date = item.date;
 
     if (date) {
-      const [day, month, year] = date.split("/");
+      const [, month, year] = date.split("/");
 
       return {
         ...item,

@@ -4,8 +4,8 @@ import { mapDataForCharts } from "../../utils/mappers";
 import { productOptions } from "../../constants/product.constants";
 import { useEffect, useState } from "react";
 import { Select } from "antd";
-import { ProductsVerticalChart } from "../../components/products-vertical-chart/products-vertical-chart";
-import "./App.css";
+import { ProductsBarChart } from "../../components/products-bar-chart/products-bar-chart";
+import "./app.css";
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(
@@ -45,7 +45,7 @@ function App() {
           />
         </div>
         <div className="chartWrapper">
-          <ProductsVerticalChart
+          <ProductsBarChart
             chartData={chartData}
             selectedFilter={selectedProduct}
           />

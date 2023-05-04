@@ -1,20 +1,27 @@
+export const  ProductsSelectOptionsValues = {
+  all: 'all',
+  product1: 'product1',
+  product2: 'product2',
+  //product3: 'product3',
+}
+
 export const productOptions = [
   {
-    value: "all",
+    value: ProductsSelectOptionsValues.all,
     label: "Все продукты",
   },
   {
-    value: "product1",
+    value: ProductsSelectOptionsValues.product1,
     label: "Продукт 1",
   },
   {
-    value: "product2",
+    value: ProductsSelectOptionsValues.product2,
     label: "Продукт 2",
   },
-  {
-    value: "product3",
+  /*{
+    value: ProductsSelectOptionsValues.product3,
     label: "Продукт 3",
-  },
+  },*/
 ];
 
 export const months = [

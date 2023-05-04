@@ -5,6 +5,7 @@ import {
   ArcElement,
   Tooltip,
   Legend,
+  Chart,
 } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { getProductLabel } from "../../utils/utils";
@@ -34,9 +35,9 @@ export function ProductsPieChart({ chartData }) {
         labels: Object.keys(chartData).map((item) => getProductLabel(item)),
         datasets: [
           {
-            data: Object.values(chartData),
+            data: Object.values(chartData).map((item) => Math.floor(item / 1000)),
             backgroundColor: [
-              "green", 'yellow', "cyan", "red", 
+              "green", 'yellow', "cyan", "red", "blue"
             ],
           },
         ],
@@ -47,6 +48,6 @@ export function ProductsPieChart({ chartData }) {
   }, [chartData]);
 
   return data ? (
-    <Pie data={data}/>
+    <Pie data={data} options={options}/>
   ) : null;
 }

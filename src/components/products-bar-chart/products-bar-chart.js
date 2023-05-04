@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState, useRef } from "react";
 import {
+  ProductsSelectOptionsValues,
   months,
 } from "../../constants/product.constants";
 import { getFactoryLabel, getBarColor} from '../../utils/utils';
@@ -37,7 +38,7 @@ export const options = {
   },
 };
 
-export function ProductsVerticalChart({ chartData, selectedFilter }) {
+export function ProductsBarChart({ chartData, selectedFilter }) {
   const [data, setData] = useState();
   const chartRef = useRef();
   const navigate = useNavigate();
@@ -68,24 +69,24 @@ export function ProductsVerticalChart({ chartData, selectedFilter }) {
           let sum = 0;
 
           switch (selectedFilter) {
-            case "all":
+            case ProductsSelectOptionsValues.all:
               sum = Object.values(dataByYear[month.number]).reduce((a, b) => {
                 return a + b;
               }, 0);
 
               break;
-            case "product1":
+            case ProductsSelectOptionsValues.product1:
               sum = dataByYear[month.number].product1;
 
               break;
-            case "product2":
+            case ProductsSelectOptionsValues.product2:
               sum = dataByYear[month.number].product2;
 
               break;
-            case "product3":
+            /*case ProductsSelectOptionsValues.product3:
               sum = dataByYear[month.number].product3;
 
-              break;
+              break;*/
             default:
               sum = 0;
               break;
