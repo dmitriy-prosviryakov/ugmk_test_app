@@ -1,5 +1,3 @@
-import { getFactoryLiteral } from "../utils/utils";
-
 export const ProductsSelectOptionsValues = {
   all: "all",
   product1: "product1",
