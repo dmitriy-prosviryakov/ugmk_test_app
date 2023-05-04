@@ -5,7 +5,7 @@ import { productOptions } from "../../constants/product.constants";
 import { useEffect, useState } from "react";
 import { Select } from "antd";
 import { ProductsBarChart } from "../../components/products-bar-chart/products-bar-chart";
-import "./app.css";
+import styles from "./app.module.scss";
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(
@@ -34,9 +34,9 @@ function App() {
   };
 
   return (
-    <div className="app">
-      <div className="content">
-        <div className="filterWrapper">
+    <div className={styles.app}>
+      <div className={styles.content}>
+        <div className={styles.filterWrapper}>
           <div>Фильтр по типу продукции</div>
           <Select
             options={productOptions}
@@ -44,7 +44,7 @@ function App() {
             onChange={onProductSelect}
           />
         </div>
-        <div className="chartWrapper">
+        <div className={styles.chartWrapper}>
           <ProductsBarChart
             chartData={chartData}
             selectedFilter={selectedProduct}

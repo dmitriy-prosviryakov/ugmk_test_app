@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getFactoryLiteral } from "../../utils/utils";
 import { ProductsPieChart } from "../../components/products-pie-chart/products-pie-chart";
-import "./details.css";
+import styles from "./details.module.scss";
 import { months } from "../../constants/product.constants";
 
 function Details() {
@@ -37,15 +37,15 @@ function Details() {
   };
 
   return (
-    <div className="details">
-      <div className="content">
-        <div className="text">
+    <div className={styles.details}>
+      <div className={styles.content}>
+        <div className={styles.text}>
           {`Статистика по продукции фабрики ${getFactoryLiteral(
             companyId
           )} за ${getMonthLabel()}`}
         </div>
-        <div className="chartWrapper">
-          <div className="chart">
+        <div className={styles.chartWrapper}>
+          <div className={styles.chart}>
             <ProductsPieChart chartData={chartData} />
           </div>
         </div>
